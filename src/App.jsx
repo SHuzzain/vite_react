@@ -12,7 +12,7 @@ const InputConfig = [
     type: "text",
     key: "1",
     placeHolder: "Text Here...",
-    required: false,
+    isRequire: false,
     errorMessage: "This field require",
     min: "",
     max: "",
@@ -97,8 +97,11 @@ const App = () => {
                               label={users[name].label}
                               rules={[
                                 {
-                                  required: users[name].required,
-                                  message: users[name].required,
+                                  required: users[name].isRequire,
+                                  message: users[name]?.errorMessage,
+                                  min: users[name]?.min,
+                                  max: users[name]?.max,
+                                  pattern: users[name]?.regex,
                                 },
                               ]}
                             >
